@@ -1,0 +1,23 @@
+{
+  "name": "node_react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DishantSthapit/node_react.git"
+  },
+  "author": "Dishant",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DishantSthapit/node_react/issues"
+  },
+  "homepage": "https://github.com/DishantSthapit/node_react#readme",
+  "dependencies": {
+    "nodemon": "^2.0.10"
+  }
+}
