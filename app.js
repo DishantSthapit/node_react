@@ -1,9 +1,25 @@
-// Express is package used to build real web app 
-const express = require("express")
+const express = require('express')
 const app = express()
- 
-app.get('/', (req, res) => {
-  res.send('Hello World')
-})
- 
-app.listen(3000)
+
+const morgan = require("morgan")
+
+//bring in routes
+const { getPosts } = require('./routes/post')
+
+
+const myOwnMiddleWare = (req,res, next) => {
+  setTimeout(()=>{
+    console.log("Middleware applied")
+  },1000)
+  next();
+}
+
+//Middleware
+app.use(myOwnMiddleWare)
+app.use(morgan("dev"))
+
+app.get("/", getPosts)
+
+
+const port = 8080;
+app.listen(port, () => {console.log(`A node JS API is listining on port ${port}`)});
