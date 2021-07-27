@@ -1,25 +1,20 @@
 const Post = require("../models/post")
 
 exports.getPosts = (req, res) => {
-    res.send({
-        posts: [
-            {title: "First Post"},
-            {title: "Second Post"}
-        ]
-    })
+    //By default express sends 200 as status
+    // select method helps you select the required fields for the posts
+    const posts = Post.find().select("_id title body").then(posts => {
+        res.json({
+            posts
+        })
+    }).catch(err => console.log(err))
 };
 
 exports.createPosts = (req, res ) => {
     const post = new Post(req.body);
-    post.save((err, result)=>{
-        if(err){
-            return res.status(400).json({
-                error: err
-            })
-        }
+    post.save().then((result) => {
         res.status(200).json({
-            title: result.title,
-            body: result.body
+            post: result
         })
     })
 }
