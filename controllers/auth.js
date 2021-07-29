@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken')
 require('dotenv').config()
 const User = require("../models/user")
+const expressJwt = require("express-jwt")
 
 // findOne method will gives us the result as soon as found based on query passed
 exports.signup = async (req,res) => {
@@ -43,3 +44,17 @@ exports.signin =  (req,res) => {
         return res.json({token, user: {_id,name,email}})
     })
 }
+
+
+exports.signout = (req,res) =>{
+    // To sign out successfully we just need to clear the cookie
+    res.clearCookie("t")
+    return res.json({message:"Signout sucessfully"})
+}
+
+// This allows us to make authorization for any routes that does not have access token
+exports.requireSignin = expressJwt({
+    secret: process.env.JWT_SECRET,
+    algorithms: ["HS256"], 
+    userProperty: "auth",
+})
