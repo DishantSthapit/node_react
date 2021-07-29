@@ -1366,6 +1366,11 @@ utils-merge@1.0.1:
   resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
   integrity sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM=
 
+uuidv1@^1.6.14:
+  version "1.6.14"
+  resolved "https://registry.yarnpkg.com/uuidv1/-/uuidv1-1.6.14.tgz#cbd3b6f5e3d0348a2635911ecfd04484a91b851d"
+  integrity sha512-34FVVCDDHzzcOglmrKbZP99+8/6StEzo3VU3MuKw0Mo0B/YBQ1bWNQU8s79ofNnrPlfI+7A9pkAdhmQ6CyLHFg==
+
 validator@^10.4.0:
   version "10.11.0"
   resolved "https://registry.yarnpkg.com/validator/-/validator-10.11.0.tgz#003108ea6e9a9874d31ccc9e5006856ccd76b228"
