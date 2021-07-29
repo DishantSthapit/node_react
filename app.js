@@ -14,6 +14,7 @@ const morgan = require("morgan")
 //bring in routes
 const postRoutes = require('./routes/post')
 const authRoutes = require('./routes/auth')
+const accessToken = require('./routes/accessToken')
 //db connect
 mongoose.connect(process.env.URI, {useNewUrlParser: true, useUnifiedTopology: true }).then(() => console.log('db connected'))
 mongoose.connection.on('error', err => {
@@ -30,6 +31,7 @@ app.use(cookieParser())
 app.use(expressValidator())
 app.use("/", postRoutes)
 app.use("/", authRoutes)
+app.use("/", accessToken)
 
 
 
