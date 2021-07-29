@@ -3,6 +3,7 @@ const app = express()
 const env = require('dotenv')
 const mongoose  = require('mongoose')
 const bodyParser = require('body-parser')
+const cookieParser = require('cookie-parser')
 const expressValidator = require ('express-validator')
 
 // This method is used to invoke the dotenv variables and we can use it after invoking
@@ -23,6 +24,8 @@ mongoose.connection.on('error', err => {
 app.use(morgan("dev"))
 //Middleware to parse the response
 app.use(bodyParser.json())
+//Middleware to parse the cookie
+app.use(cookieParser())
 //Middleware to validate
 app.use(expressValidator())
 app.use("/", postRoutes)

@@ -55,6 +55,11 @@ userSchema.virtual('password')
 //we can create methods for the schema by this way
 // crypto is the nodejs inbuilt function which allows to create a hash password 
 userSchema.methods = {
+
+    authenticate: function(plainText) {
+        return this.encryptPassword(plainText) === this.hashed_password
+    },
+
     encryptPassword: function(password) {
         if(!password) {
             return "";
